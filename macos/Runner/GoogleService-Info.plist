@@ -9,7 +9,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.example.firebaseCrud</string>
+	<string>com.example.fireCrud</string>
 	<key>PROJECT_ID</key>
 	<string>crud-158f9</string>
 	<key>STORAGE_BUCKET</key>
@@ -25,6 +25,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:47409456590:ios:27786435ed4e931a52f79f</string>
+	<string>1:47409456590:ios:88be6216354ab0b152f79f</string>
 </dict>
 </plist>

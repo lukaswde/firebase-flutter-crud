@@ -1,7 +1,7 @@
+import 'package:fire_crud/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_crud/firebase_options.dart';
 import 'package:flutter/material.dart';
-import 'pages/home_page.dart';
+import '/pages/home_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,7 +16,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        primaryColor: Colors.blue,
+      ),
+      home: const HomePage(),
     );
   }
 }

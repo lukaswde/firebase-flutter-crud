@@ -21,13 +21,19 @@ class DefaultFirebaseOptions {
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
-        return android;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for android - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
         return macos;
       case TargetPlatform.windows:
-        return windows;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for windows - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.linux:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for linux - '
@@ -42,45 +48,28 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions web = FirebaseOptions(
     apiKey: 'AIzaSyCQTqa-JLa66c9iBRfNgXAL72N4oc3a8H8',
-    appId: '1:47409456590:web:a46052b3931315b552f79f',
-    messagingSenderId: '47409456590',
-    projectId: 'crud-158f9',
-    authDomain: 'crud-158f9.firebaseapp.com',
-    storageBucket: 'crud-158f9.firebasestorage.app',
-  );
-
-  static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyDDDK0cdaL6tN12sm5BxGJLDeIcffcEhw8',
-    appId: '1:47409456590:android:4b318f85a0c77d5852f79f',
-    messagingSenderId: '47409456590',
-    projectId: 'crud-158f9',
-    storageBucket: 'crud-158f9.firebasestorage.app',
-  );
-
-  static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyCjxT-TOqT-6B4QwSVGkVA_FlauT9VdV_s',
-    appId: '1:47409456590:ios:27786435ed4e931a52f79f',
-    messagingSenderId: '47409456590',
-    projectId: 'crud-158f9',
-    storageBucket: 'crud-158f9.firebasestorage.app',
-    iosBundleId: 'com.example.firebaseCrud',
-  );
-
-  static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyCjxT-TOqT-6B4QwSVGkVA_FlauT9VdV_s',
-    appId: '1:47409456590:ios:27786435ed4e931a52f79f',
-    messagingSenderId: '47409456590',
-    projectId: 'crud-158f9',
-    storageBucket: 'crud-158f9.firebasestorage.app',
-    iosBundleId: 'com.example.firebaseCrud',
-  );
-
-  static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'AIzaSyCQTqa-JLa66c9iBRfNgXAL72N4oc3a8H8',
     appId: '1:47409456590:web:4bcf5e32d284c22652f79f',
     messagingSenderId: '47409456590',
     projectId: 'crud-158f9',
     authDomain: 'crud-158f9.firebaseapp.com',
     storageBucket: 'crud-158f9.firebasestorage.app',
+  );
+
+  static const FirebaseOptions ios = FirebaseOptions(
+    apiKey: 'AIzaSyCjxT-TOqT-6B4QwSVGkVA_FlauT9VdV_s',
+    appId: '1:47409456590:ios:88be6216354ab0b152f79f',
+    messagingSenderId: '47409456590',
+    projectId: 'crud-158f9',
+    storageBucket: 'crud-158f9.firebasestorage.app',
+    iosBundleId: 'com.example.fireCrud',
+  );
+
+  static const FirebaseOptions macos = FirebaseOptions(
+    apiKey: 'AIzaSyCjxT-TOqT-6B4QwSVGkVA_FlauT9VdV_s',
+    appId: '1:47409456590:ios:88be6216354ab0b152f79f',
+    messagingSenderId: '47409456590',
+    projectId: 'crud-158f9',
+    storageBucket: 'crud-158f9.firebasestorage.app',
+    iosBundleId: 'com.example.fireCrud',
   );
 }
