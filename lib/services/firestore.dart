@@ -21,6 +21,15 @@ class FirestoreService {
   }
 
   // UPDATE: update Todo's given a doc id
+  Future<void> updateTodo(String docId, String newTodo) {
+    return todos.doc(docId).update({
+      'todo': newTodo,
+      'timestamp': Timestamp.now(),
+    });
+  }
 
   // DELETE: delete Todo's given a doc id
+  Future<void> deleteTodo(String docId) {
+    return todos.doc(docId).delete();
+  }
 }
