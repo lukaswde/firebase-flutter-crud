@@ -1,7 +1,7 @@
 import 'package:fire_crud/firebase_options.dart';
+import 'package:fire_crud/pages/login/login.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import '/pages/home_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -18,10 +18,10 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.dark(
-          primary: Colors.blue,
+          primary: Color(0xFF0074CC),
         ),
       ),
-      home: const HomePage(),
+      home: Login(),
     );
   }
 }
