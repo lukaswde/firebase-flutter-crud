@@ -13,11 +13,9 @@ class Login extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       resizeToAvoidBottomInset: true,
       bottomNavigationBar: _signup(context),
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
         elevation: 0,
         toolbarHeight: 100,
         leading: GestureDetector(
@@ -26,8 +24,6 @@ class Login extends StatelessWidget {
           },
           child: Container(
             margin: const EdgeInsets.only(left: 10),
-            decoration: const BoxDecoration(
-                color: Color(0xffF7F7F9), shape: BoxShape.circle),
             child: const Center(
               child: Icon(
                 Icons.arrow_back_ios_new_rounded,
@@ -48,9 +44,9 @@ class Login extends StatelessWidget {
                   'Hello Again',
                   style: GoogleFonts.raleway(
                       textStyle: const TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 32)),
+                    fontWeight: FontWeight.bold,
+                    fontSize: 32,
+                  )),
                 ),
               ),
               const SizedBox(
@@ -81,9 +77,9 @@ class Login extends StatelessWidget {
           'Email Address',
           style: GoogleFonts.raleway(
               textStyle: const TextStyle(
-                  color: Colors.black,
-                  fontWeight: FontWeight.normal,
-                  fontSize: 16)),
+            fontWeight: FontWeight.normal,
+            fontSize: 16,
+          )),
         ),
         const SizedBox(
           height: 16,
@@ -92,15 +88,16 @@ class Login extends StatelessWidget {
           controller: _emailController,
           decoration: InputDecoration(
               filled: true,
-              hintText: 'mahdiforwork@gmail.com',
+              fillColor: Colors.grey[800],
+              hintText: 'your@mail.here',
               hintStyle: const TextStyle(
-                  color: Color(0xff6A6A6A),
-                  fontWeight: FontWeight.normal,
-                  fontSize: 14),
-              fillColor: const Color(0xffF7F7F9),
+                fontWeight: FontWeight.normal,
+                fontSize: 14,
+              ),
               border: OutlineInputBorder(
-                  borderSide: BorderSide.none,
-                  borderRadius: BorderRadius.circular(14))),
+                borderSide: BorderSide.none,
+                borderRadius: BorderRadius.circular(14),
+              )),
         )
       ],
     );
@@ -115,9 +112,9 @@ class Login extends StatelessWidget {
           'Password',
           style: GoogleFonts.raleway(
               textStyle: const TextStyle(
-                  color: Colors.black,
-                  fontWeight: FontWeight.normal,
-                  fontSize: 16)),
+            fontWeight: FontWeight.normal,
+            fontSize: 16,
+          )),
         ),
         const SizedBox(
           height: 16,
@@ -126,11 +123,13 @@ class Login extends StatelessWidget {
           obscureText: true,
           controller: _passwordController,
           decoration: InputDecoration(
+              hintText: '********',
               filled: true,
-              fillColor: const Color(0xffF7F7F9),
+              fillColor: Colors.grey[800],
               border: OutlineInputBorder(
-                  borderSide: BorderSide.none,
-                  borderRadius: BorderRadius.circular(14))),
+                borderSide: BorderSide.none,
+                borderRadius: BorderRadius.circular(14),
+              )),
         )
       ],
     );
@@ -139,7 +138,8 @@ class Login extends StatelessWidget {
   Widget _signin(BuildContext context) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-        backgroundColor: const Color(0xff0D6EFD),
+        foregroundColor: Colors.white,
+        backgroundColor: const Color(0xff0074CC),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(14),
         ),
@@ -172,9 +172,7 @@ class Login extends StatelessWidget {
             TextSpan(
                 text: "Create Account",
                 style: const TextStyle(
-                    color: Color(0xff1A1D1E),
-                    fontWeight: FontWeight.normal,
-                    fontSize: 16),
+                    fontWeight: FontWeight.normal, fontSize: 16),
                 recognizer: TapGestureRecognizer()
                   ..onTap = () {
                     Navigator.push(
