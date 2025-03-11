@@ -1,3 +1,4 @@
+import 'package:fire_crud/pages/login/login.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:fire_crud/services/firestore.dart';
@@ -18,9 +19,18 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Todo List"),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.logout),
+            onPressed: () {
+              Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                      builder: (BuildContext context) => Login()));
+            },
+          ),
+        ],
       ),
-
-      // Body
       body: Column(
         children: [
           Expanded(
@@ -48,10 +58,6 @@ class _HomePageState extends State<HomePage> {
                             Expanded(
                               child: TextField(
                                 controller: textController,
-                                onEditingComplete: () {
-                                  firestoreService.updateTodo(
-                                      docID, textController.text);
-                                },
                                 onSubmitted: (newValue) {
                                   firestoreService.updateTodo(docID, newValue);
                                 },
@@ -91,33 +97,21 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-
-      // Footer
       floatingActionButton: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20.0),
         child: Row(
           children: [
-            // Text Field
             Expanded(
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20.0),
                 child: TextField(
                   controller: textController,
                   onSubmitted: (value) {
-                    // add a new todo
                     firestoreService.addTodo(value);
-
-                    // clear the textController
                     textController.clear();
                   },
-                  cursorColor: Colors.white54,
-                  style: const TextStyle(
-                    color: Colors.white,
-                  ),
                   decoration: InputDecoration(
                     hintText: 'Add something',
-                    hintStyle: const TextStyle(color: Colors.white54),
-                    focusColor: Colors.white,
                     filled: true,
                     fillColor: Colors.grey[800],
                     enabledBorder: OutlineInputBorder(
@@ -132,14 +126,9 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
-
-            // Add Button
             FloatingActionButton(
               onPressed: () {
-                // add a new todo
                 firestoreService.addTodo(textController.text);
-
-                // clear the textController
                 textController.clear();
               },
               child: Icon(Icons.add),

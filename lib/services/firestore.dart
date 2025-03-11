@@ -1,22 +1,28 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class FirestoreService {
-  // get Todo's
   final CollectionReference todos =
       FirebaseFirestore.instance.collection('todos');
 
   // CREATE: add a new Todo
   Future<void> addTodo(String todo) {
+    String userId = FirebaseAuth.instance.currentUser!.uid;
     return todos.add({
       'todo': todo,
       'timestamp': Timestamp.now(),
+      'userId': userId,
     });
   }
 
   // READ: get notes from database
   Stream<QuerySnapshot> getTodoStream() {
-    final todoStream = todos.orderBy('timestamp', descending: true).snapshots();
-
+    String userId =
+        FirebaseAuth.instance.currentUser!.uid; // FIXME check userId
+    final todoStream = todos
+        .where('userId', isEqualTo: userId)
+        .orderBy('timestamp', descending: true)
+        .snapshots();
     return todoStream;
   }
 
