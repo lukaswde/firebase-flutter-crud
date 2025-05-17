@@ -17,13 +17,21 @@ class FirestoreService {
 
   // READ: get notes from database
   Stream<QuerySnapshot> getTodoStream() {
-    String userId =
-        FirebaseAuth.instance.currentUser!.uid; // FIXME check userId
-    final todoStream = todos
-        .where('userId', isEqualTo: userId)
-        .orderBy('timestamp', descending: true)
-        .snapshots();
-    return todoStream;
+    final user = FirebaseAuth.instance.currentUser;
+    if (user == null) {
+      // Return an empty stream if not logged in
+      return Stream<QuerySnapshot>.empty();
+    }
+
+    try {
+      return todos
+          .where('userId', isEqualTo: user.uid)
+          .orderBy('timestamp', descending: true)
+          .snapshots();
+    } catch (e) {
+      print('Error getting todo stream: $e');
+      return Stream<QuerySnapshot>.empty();
+    }
   }
 
   // UPDATE: update Todo's given a doc id
