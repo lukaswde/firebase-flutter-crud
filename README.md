@@ -5,6 +5,13 @@
 - Database communication (**C**reate, **R**ead, **U**pdate, **D**elete)
 - add, edit and remove todo's
 
+## Screenshots
+
+<div style="display: flex; justify-content: space-between;">
+    <img src="img/screenshot1.png" width="45%" alt="Login Screen">
+    <img src="img/screenshot2.png" width="45%" alt="Todo App">
+</div>
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
