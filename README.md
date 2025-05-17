@@ -6,10 +6,12 @@
 - add, edit and remove todo's
 
 ## Screenshots
-<div style="display: flex; justify-content: space-around;">
-    <img src="img/loginScreen.png" width="45%" alt="Login Screen">
-    <img src="img/todoList.png" width="45%" alt="Todo App">
-</div>
+
+<p align="center">
+  <img src="img/loginScreen.png" width="400" alt="Login Screen">
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="img/todoList.png" width="400" alt="Todo App">
+</p>
 
 ## Getting Started
 
