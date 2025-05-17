@@ -2,6 +2,7 @@ import 'package:fire_crud/pages/login/login.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:fire_crud/services/firestore.dart';
+import 'package:fire_crud/services/auth_service.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -22,11 +23,8 @@ class _HomePageState extends State<HomePage> {
         actions: [
           IconButton(
             icon: Icon(Icons.logout),
-            onPressed: () {
-              Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                      builder: (BuildContext context) => Login()));
+            onPressed: () async {
+              await AuthService().signout(context: context);
             },
           ),
         ],
@@ -37,8 +35,23 @@ class _HomePageState extends State<HomePage> {
             child: StreamBuilder(
               stream: firestoreService.getTodoStream(),
               builder: (context, snapshot) {
+                // Add debug information
+                if (snapshot.hasError) {
+                  print('Stream error: ${snapshot.error}');
+                  return Center(child: Text('Error: ${snapshot.error}'));
+                }
+
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return const Center(child: CircularProgressIndicator());
+                }
+
                 if (snapshot.hasData) {
                   List todoList = snapshot.data!.docs;
+
+                  if (todoList.isEmpty) {
+                    return const Center(
+                        child: Text('No todos found. Add your first one!'));
+                  }
 
                   return ListView.builder(
                     itemCount: todoList.length,
