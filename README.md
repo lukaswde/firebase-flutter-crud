@@ -1,6 +1,9 @@
 # fire_crud
 
-A new Flutter project.
+- Simple Todo App
+- Login and SignUp via email/password
+- Database communication (<span style="color:green">**C**</span>reate, <span style="color:green">**R**</span>ead, <span style="color:green">**U**</span>pdate, <span style="color:green">**D**</span>elete)
+- add, edit and remove todo's
 
 ## Getting Started
 
