@@ -10,10 +10,6 @@
     <img src="img/loginScreen.png" width="45%" alt="Login Screen">
     <img src="img/todoList.png" width="45%" alt="Todo App">
 </div>
-<div style="display: flex; justify-content: space-between;">
-    <img src="img/loginScreen.png" width="45%" alt="Login Screen">
-    <img src="img/todoList.png" width="45%" alt="Todo App">
-</div>
 
 ## Getting Started
 
